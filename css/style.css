@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "GT Eesti Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("GT Eesti Pro"), url("../fonts/GTEestiProDisplay-Regular.woff2") format("woff2"), url("../fonts/GTEestiProDisplay-Regular.woff") format("woff"), url("../fonts/GTEestiProDisplay-Regular.ttf") format("ttf"), url("../fonts/GTEestiProDisplay-Regular.eot") format("eot");
+}
+body {
+  font-family: "GT Eesti Pro";
+  font-weight: 400;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@-webkit-keyframes rotateAnim {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAnim {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.prog {
+  width: 100%;
+  max-width: 768px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  color: #000000;
+}
+.prog.loaded .prog__visual {
+  scale: 1;
+  opacity: 1;
+  visibility: visible;
+}
+.prog.loaded .prog__set {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+.prog.animated .prog__visual {
+  -webkit-animation: rotateAnim 3s linear infinite;
+          animation: rotateAnim 3s linear infinite;
+}
+.prog.hidden .prog__visual {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.prog__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.prog h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.prog__visual {
+  scale: 1.7;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 66px;
+}
+.prog__set {
+  -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+  opacity: 0;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.prog-ring__circle {
+  stroke-width: 10;
+  stroke: #005dff;
+  fill: none;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.prog-ring__back {
+  stroke-width: 10;
+  stroke: #eef3f6;
+  fill: none;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.set {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 94px;
+}
+.set__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 22px;
+}
+.set__item input[type=checkbox] {
+  position: absolute;
+  margin: 8px 0 0 16px;
+  opacity: 0;
+  visibility: hidden;
+}
+.set__item input[type=checkbox] + label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  position: relative;
+  padding: 0 0 0 70px;
+  cursor: pointer;
+}
+.set__item input[type=checkbox] + label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 46px;
+  height: 30px;
+  border-radius: 20px;
+  background: #dfe6f0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.set__item input[type=checkbox] + label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 2px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 16px;
+  background: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.set__item input[type=checkbox]:checked + label:after {
+  margin-left: 16px;
+}
+.set__item input[type=checkbox]:checked + label:before {
+  background: #005dff;
+}
+.set__item-value {
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.set__item-value input {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 46px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  font-family: "GT Eesti Pro";
+  font-size: 16px;
+  text-align: center;
+}
+.set__item-value input:hover, .set__item-value input:focus {
+  outline: none;
+}
+.set__item-value input::-webkit-outer-spin-button, .set__item-value input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.set__item-value input[type=number] {
+  -moz-appearance: textfield;
+}
+@media screen and (orientation: portrait) {
+  .prog__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media screen and (orientation: landscape) {
+  .prog__body {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .prog__visual {
+    margin: 0;
+    margin-right: 120px;
+  }
+  .prog__set {
+    margin: 0;
+    position: relative;
+    left: -40px;
+  }
+}

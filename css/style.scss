@@ -1,0 +1,256 @@
+@font-face {
+	font-family: 'GT Eesti Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('GT Eesti Pro'),
+		url('../fonts/GTEestiProDisplay-Regular.woff2') format('woff2'), 
+		url('../fonts/GTEestiProDisplay-Regular.woff') format('woff'),
+		url('../fonts/GTEestiProDisplay-Regular.ttf') format('ttf'),
+		url('../fonts/GTEestiProDisplay-Regular.eot') format('eot');
+}
+
+$gray-main: #eef3f6;
+$gray-dark: #dfe6f0;
+$blue-main: #005dff;
+
+
+body {
+  font-family: 'GT Eesti Pro';
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+// ---------------Content--------------
+@keyframes rotateAnim {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.prog {
+  width: 100%;
+  max-width: 768px;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #000000;
+
+  &.loaded {
+
+    & .prog__visual {
+      scale: 1;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    & .prog__set {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.animated {
+
+    & .prog__visual {
+      animation: rotateAnim 3s linear infinite;
+    }
+  }
+
+  &.hidden {
+    
+    & .prog__visual {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  & h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  &__visual {
+    scale: 1.7;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 66px;
+  }
+
+  &__set {
+    transform: translateX(-100px);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.8s;
+  }
+
+  &-ring {
+
+    &__circle {
+      stroke-width: 10;
+      stroke: $blue-main;
+      fill: none;
+      transform-origin: center;
+      transform: rotate(-90deg);
+      transition: all 0.3s;
+    }
+    
+    &__back {
+      stroke-width: 10;
+      stroke: $gray-main;
+      fill: none;
+      transform-origin: center;
+    }
+  }
+}
+
+.set {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 94px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    & input[type="checkbox"] {
+      position: absolute;
+      margin: 8px 0 0 16px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & input[type="checkbox"] + label {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      position: relative;
+      padding: 0 0 0 70px;
+      cursor: pointer;
+    }
+
+    & input[type="checkbox"] + label:before {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      width: 46px;
+      height: 30px;
+      border-radius: 20px;
+      background: $gray-dark;
+      transition: all 0.3s;
+    }
+
+    & input[type="checkbox"] + label:after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 2px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 16px;
+      background: #fff;
+      transition: all 0.3s;
+    }
+
+    & input[type="checkbox"]:checked + label:after {
+      margin-left: 16px;
+    }
+
+    & input[type="checkbox"]:checked + label:before {
+      background: $blue-main;
+    }
+  }
+
+  &__item-value {
+
+    & input {
+      display: block;
+      box-sizing: border-box;
+      width: 46px;
+      height: 30px;
+      background: transparent;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      font-family: 'GT Eesti Pro';
+      font-size: 16px;
+      text-align: center;
+
+      &:hover, &:focus {
+        outline: none;
+      }
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    & input::-webkit-outer-spin-button,
+    & input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    & input[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &__item-anim {
+  }
+
+  &__item-hide {
+  }
+}
+
+@media screen and (orientation:portrait) {
+  .prog {
+    &__body {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (orientation:landscape) {
+  .prog {
+    &__body {
+      width: fit-content;
+      flex-direction: row;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    &__visual {
+      margin: 0;
+      margin-right: 120px;
+    }
+    &__set {
+      margin: 0;
+      position: relative;
+      left: -40px;
+    }
+  }
+}

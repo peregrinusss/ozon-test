@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Ozon test</title>
+</head>
+<body>
+  <div class="prog">
+    <h3>Progress</h3>
+    <div class="prog__body">
+      <div class="prog__visual">
+        <svg class="prog-ring" width="126" height="126">
+          <circle class="prog-ring__back" cx="63" cy="63" r="56"></circle>
+          <circle class="prog-ring__circle" cx="63" cy="63" r="56"></circle>
+        </svg>
+      </div>
+      <div class="prog__set set">
+        <div class="set__item set__item-value">
+          <input min="0" max="100" type="number" id="prog_value" name="prog_value" value="60">
+          <label for="prog_value">Value</label>
+        </div>
+        <div class="set__item">
+          <input type="checkbox" id="prog_animate" name="prog_animate">
+          <label for="prog_animate">Animate</label>
+        </div>
+        <div class="set__item">
+          <input type="checkbox" id="prog_hide" name="prog_hide">
+          <label for="prog_hide">Hide</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
